@@ -1,7 +1,7 @@
 <template>
     <div>
         <header>
-            <p class="header-logo"><NuxtLink to="/api">Picoo</NuxtLink></p>
+            <p class="header-logo"><NuxtLink to="/">Picoo</NuxtLink></p>
             
             <input type="text" name="tag" placeholder="タグ名検索" v-model="tag" />
             <button @click="searchTag">検索</button>
@@ -20,7 +20,7 @@
             </div>
             <div class="dropdown" :class="{isOpen}">
                 <ul>
-                    <li><NuxtLink to="/api" class="menu-link">画像投稿</NuxtLink></li>
+                    <li><NuxtLink to="/" class="menu-link">画像投稿</NuxtLink></li>
                     <li><NuxtLink to="/api/user" class="menu-link">マイページ</NuxtLink></li>
                     <li><NuxtLink to="/api/user/follows" class="menu-link">フォローユーザー</NuxtLink></li>
                     <li><NuxtLink to="/api/user/favorites" class="menu-link">お気に入り画像</NuxtLink></li>
@@ -31,7 +31,7 @@
         </header>
         
         <Nuxt />
-        
+
         <footer>
             <small>&copy; 2023 Picoo</small>
         </footer>
