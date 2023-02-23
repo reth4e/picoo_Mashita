@@ -20,6 +20,10 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->integer('follows_count');
+            $table->integer('followers_count');
+            $table->timestamp('last_uploaded');
+            $table->string('icon_path');
             $table->timestamps();
         });
     }

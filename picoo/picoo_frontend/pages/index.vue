@@ -28,7 +28,6 @@
         newPostComment: "",
         newTag: "",
         picture: "",
-        contactLists: [],
       };
     },
 
@@ -38,14 +37,13 @@
       },
 
       async fileUpload() {
-        // ここにタイトル、タグ、コメントのデータ入れる
         // const formData = new FormData();
         // formData.append('picture', this.picture)
         const formData = {
           title: this.newTitle,
           post_comment: this.newPostComment,
           tag: this.newTag,
-          picture: this.picture
+          picture: this.picture,
         };
         await this.$axios.post("http://127.0.0.1:8000/", formData);
       }

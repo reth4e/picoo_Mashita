@@ -1,7 +1,7 @@
 <template>
     <div>
         <header>
-            <p class="header-logo"><NuxtLink to="/">Picoo</NuxtLink></p>
+            <p class="header-logo"><NuxtLink to="/" class="link" style="text-decoration: none; color: #000;">Picoo</NuxtLink></p>
             
             <input type="text" name="tag" placeholder="タグ名検索" v-model="tag" />
             <button @click="searchTag">検索</button>
@@ -20,10 +20,11 @@
             </div>
             <div class="dropdown" :class="{isOpen}">
                 <ul>
-                    <li><NuxtLink to="/" class="menu-link">画像投稿</NuxtLink></li>
-                    <li><NuxtLink to="/api/user" class="menu-link">マイページ</NuxtLink></li>
-                    <li><NuxtLink to="/api/user/follows" class="menu-link">フォローユーザー</NuxtLink></li>
-                    <li><NuxtLink to="/api/user/favorites" class="menu-link">お気に入り画像</NuxtLink></li>
+                    <li><NuxtLink to="/" style="text-decoration: none; color: #000;">画像投稿</NuxtLink></li>
+                    <li><NuxtLink to="/api/user" style="text-decoration: none; color: #000;">マイページ</NuxtLink></li>
+                    <li><NuxtLink to="/api/user/follows" style="text-decoration: none; color: #000;">フォローユーザー</NuxtLink></li>
+                    <li><NuxtLink to="/api/user/favorites" style="text-decoration: none; color: #000;">お気に入り画像</NuxtLink></li>
+                    <li><NuxtLink to="/api/popular" style="text-decoration: none; color: #000;">人気ユーザー・画像</NuxtLink></li>
                     <li>ログアウト</li>
                 </ul>
             </div>
@@ -60,8 +61,8 @@ export default{
 </script>
 
 <style>
-.menu-link {
-    text-decoration: none;
+li {
+    list-style: none;
 }
 
 .header-menu {
