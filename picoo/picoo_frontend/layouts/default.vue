@@ -6,7 +6,7 @@
             <input type="text" name="tag" placeholder="タグ名検索" v-model="tag" />
             <button @click="searchTag">検索</button>
 
-            <button class="btn-mypage btn">
+            <button class="btn-mypage btn" v-if="$auth.loggedIn">
                 <!-- ここにイメージ画像 -->
                 マイページ
             </button>
@@ -19,13 +19,17 @@
                 <span class="menu_line-bottom"></span>
             </div>
             <div class="dropdown" :class="{isOpen}">
-                <ul>
+                <ul v-if="$auth.loggedIn">
                     <li><NuxtLink to="/" style="text-decoration: none; color: #000;">画像投稿</NuxtLink></li>
-                    <li><NuxtLink to="/api/user" style="text-decoration: none; color: #000;">マイページ</NuxtLink></li>
                     <li><NuxtLink to="/api/user/follows" style="text-decoration: none; color: #000;">フォローユーザー</NuxtLink></li>
                     <li><NuxtLink to="/api/user/favorites" style="text-decoration: none; color: #000;">お気に入り画像</NuxtLink></li>
                     <li><NuxtLink to="/api/popular" style="text-decoration: none; color: #000;">人気ユーザー・画像</NuxtLink></li>
-                    <li>ログアウト</li>
+                    <li><a @click="logout" style="text-decoration: none; color: #000;">ログアウト</a></li>
+                    
+                </ul>
+                <ul v-else>
+                    <li><NuxtLink to="/register" style="text-decoration: none; color: #000;">新規登録</NuxtLink></li>
+                    <li><NuxtLink to="/login" style="text-decoration: none; color: #000;">ログイン</NuxtLink></li>
                 </ul>
             </div>
             
@@ -54,7 +58,16 @@ export default{
         },
 
         searchTag(){
-        }
+        },
+
+        async logout() {
+            try {
+                await this.$auth.logout();
+                this.$router.push("/login");
+            } catch (error) {
+                console.log(error);
+            }
+        },
     },
     
 };

@@ -22,8 +22,8 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->integer('follows_count');
             $table->integer('followers_count');
-            $table->timestamp('last_uploaded');
-            $table->string('icon_path');
+            $table->timestamp('last_uploaded')->nullable();
+            $table->string('icon_path')->nullable();
             $table->timestamps();
         });
     }

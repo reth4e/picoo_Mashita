@@ -14,6 +14,7 @@ class Picture extends Model
     protected $fillable = [
         'file_path',
         'title',
+        'tag_count',
         'post_comment',
     ];
 
